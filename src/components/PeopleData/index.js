@@ -14,7 +14,9 @@ class PeopleData extends Component {
   // eslint-disable-next-line arrow-body-style
   restList = () => {
     const {sequence} = this.state
-    console.log(sequence)
+    if (sequence >= l) {
+      alert('No More People!')
+    }
     // eslint-disable-next-line arrow-body-style
     return Data.slice(1, sequence).map(data => {
       return (
@@ -66,7 +68,10 @@ class PeopleData extends Component {
             <p className="location">Location : {Data[0].location}</p>
           </div>
         </div>
-        {sequence === l ? this.alt() : this.restList()}
+        {this.restList()}
+        <div className="count">
+          <p>CURRENTLY {sequence} PEOPLE SHOWING</p>
+        </div>
       </div>
     )
   }
